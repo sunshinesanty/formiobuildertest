@@ -1,0 +1,1 @@
+interface Window { MyNamespace: any; }
