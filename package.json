@@ -1,0 +1,23 @@
+{
+  "name": "formiobuildertest",
+  "version": "1.0.0",
+  "description": "formio Pure JS form builder & renderer test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Santoshkumar Krishnamurthy Iyer",
+  "license": "ISC",
+  "dependencies": {
+    "big-json-viewer": "^0.1.3",
+    "express": "^4.16.3",
+    "formiojs": "~3.0.0-alpha.13"
+  },
+  "devDependencies": {
+    "ts-loader": "^4.3.0",
+    "typescript": "^2.8.3",
+    "webpack": "^4.8.3",
+    "webpack-cli": "^2.1.3",
+    "webpack-dev-server": "^3.1.4"
+  }
+}
