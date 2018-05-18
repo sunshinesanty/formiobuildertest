@@ -74,6 +74,7 @@ export class MyFormioRenderer {
     this.form = form;
     this.renderElement = rendererElement;
 
+
     // Only initialize a single formio instance.
     if (this.formio) {
       this.formio.form = this.form;
@@ -126,7 +127,6 @@ export class MyFormioRenderer {
     if (this.initialized) {
       return;
     }
-
     this.options = Object.assign(
       {
         errors: {
@@ -140,6 +140,7 @@ export class MyFormioRenderer {
           beforeSubmit: null
         }
       },
+
       this.options
     );
     this.initialized = true;

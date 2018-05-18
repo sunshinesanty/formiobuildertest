@@ -1,6 +1,7 @@
 import { MyFormBuilder } from './myFormBuilder'
 import { MyFormioRenderer } from './myFormRenderer';
 import * as config from './config';
+
 import { FieldCustomText } from './components';
 
 window['MyFormIOBuilder'] = new MyFormBuilder({
@@ -19,4 +20,3 @@ window.onload = function () {
 };
 
 window['rendererElement'] = document.getElementById('renderer');
-
