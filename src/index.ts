@@ -1,8 +1,15 @@
 import { MyFormBuilder } from './myFormBuilder'
 import { MyFormioRenderer } from './myFormRenderer';
-import * as config from './config';
 
-import { FieldCustomText } from './components';
+// this is used to register all custom components
+import { registerAllComponents } from './components';
+import './assets/styles.less';
+
+/**
+ * Registers all the custom components
+ * do this before the Builder or renderer is initialized.
+ */
+registerAllComponents();
 
 window['MyFormIOBuilder'] = new MyFormBuilder({
   apiUrl: 'http://localhost:3001',

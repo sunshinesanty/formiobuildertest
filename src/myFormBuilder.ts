@@ -1,8 +1,7 @@
 
 import { Formio } from 'formiojs';
-import { IMyFormConfig } from './config';
+import { IMyFormConfig } from './model';
 import { MyFormioRenderer } from './myFormRenderer';
-import { FieldCustomText } from './components';
 
 export class MyFormBuilder {
   public formio: any;
@@ -13,26 +12,21 @@ export class MyFormBuilder {
     } else {
       console.warn('You must provide Formio IO appa nd API url!');
     }
-    this.registerCustomComponents();
   }
-  handleEvent = (action: string, formIntance: any) => {
+  setPreview = (action: string, formSchema: any) => {
     console.log(action);
-    window['MyFormCurrentContext'] = formIntance ? formIntance.component : {};
-    if (window['MyFormIORenderer'] && action === 'save' &&
-      window['rendererElement']) {
+    window['MyFormCurrentContext'] = formSchema ? formSchema : {};
+    if (window['MyFormIORenderer'] && window['rendererElement']) {
       (<MyFormioRenderer>window['MyFormIORenderer']).setForm(window['rendererElement'], window['MyFormCurrentContext'] || {});
     }
   }
   builder = async (domELement: HTMLElement, form: any, options: any = {}): Promise<any> => {
-    const instance = await Formio.builder(domELement, form, options);
+    const instance = await Formio.builder(domELement, form || { display: 'form'  }, options);
     this.formio = instance;
-    instance.on('saveComponent', () => this.handleEvent('save', instance));
-    instance.on('updateComponent', () => this.handleEvent('update', instance));
-    instance.on('deleteComponent', () => this.handleEvent('delete', instance));
+    instance.on('saveComponent', () => this.setPreview('save', instance.schema));
+    instance.on('editComponent', (event) => console.log('edit', event));
+    instance.on('updateComponent', (event) => console.log('update', event));
+    instance.on('deleteComponent', (event) => console.log('delete', event));
     return instance;
-  }
-
-  registerCustomComponents = () => {
-    Formio.registerComponent('custom', FieldCustomText);
   }
 }

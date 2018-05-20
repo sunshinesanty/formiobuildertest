@@ -9,10 +9,19 @@
   "author": "Santoshkumar Krishnamurthy Iyer",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "~3.3.7",
+    "bootstrap-less": "^3.3.7",
+    "bootswatch": "~3.3.7",
     "express": "^4.16.3",
-    "formiojs": "~3.0.0-alpha.13"
+    "font-awesome": "^4.7.0",
+    "formiojs": "^3.0.0-alpha.13"
   },
   "devDependencies": {
+    "clean-webpack-plugin": "^0.1.19",
+    "css-loader": "^0.28.11",
+    "less": "^3.0.4",
+    "less-loader": "^4.1.0",
+    "mini-css-extract-plugin": "^0.4.0",
     "ts-loader": "^4.3.0",
     "typescript": "^2.8.3",
     "webpack": "^4.8.3",

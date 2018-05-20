@@ -1,7 +1,6 @@
 import { each, isEmpty, get } from 'lodash';
 import { Formio } from 'formiojs';
-import { IMyFormendererProps } from './config';
-import { FieldCustomText } from './components';
+import { IMyFormendererProps } from './model';
 
 export class MyFormioRenderer {
   public ready: Promise<object>;
@@ -32,7 +31,7 @@ export class MyFormioRenderer {
   change: (data: any) => any; // EventEmitter<object>;
   invalid: (data: any) => any; // EventEmitter<boolean>;
   errorChange: (data: any) => any; // EventEmitter<any>;
-  formLoad: (data: any) => any; // EventEmitter<any>;  
+  formLoad: (data: any) => any; // EventEmitter<any>;
 
   public formio: any;
   public initialized: boolean;
@@ -62,8 +61,6 @@ export class MyFormioRenderer {
     this.formLoad = this.dummyFunc;
     this.initialized = false;
     this.alerts.alerts = [];
-
-    this.registerCustomComponents();
   }
 
   dummyFunc = (data: any) => {
@@ -245,8 +242,5 @@ export class MyFormioRenderer {
     } else {
       this.submitExecute(submission);
     }
-  }
-  registerCustomComponents = () => {
-    Formio.registerComponent('custom', FieldCustomText);
   }
 }
